@@ -1,54 +1,52 @@
 body {
   margin: 0;
   font-family: 'Share Tech Mono', monospace;
-  background: linear-gradient(to bottom, #222, #00809D);
-  color: #FCECDD;
+  color: #1a1a1a;
+  background: linear-gradient(to bottom, #FCECDD, #F3A26D);
   overflow-x: hidden;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  padding: 1em;
-  background-color: #222;
-  margin: 0;
+#background-gradient {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 
-nav ul li {
-  margin: 0 1.5em;
+.intro {
+  padding: 100px 10vw;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #00809D;
 }
 
-nav ul li a {
-  color: #FCECDD;
-  text-decoration: none;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #FF7601;
-  transform: translateY(-5px);
-}
-
-.hero {
+.tabs {
   text-align: center;
-  padding: 5em 1em;
+  margin-top: 40px;
 }
 
-.hero h1 {
-  font-size: 3em;
+.tabs a {
+  margin: 0 15px;
+  text-decoration: none;
   color: #FF7601;
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.hero p {
-  font-size: 1.5em;
-  color: #F3A26D;
-  transition: transform 0.3s ease, color 0.3s ease;
+.tabs a:hover {
+  color: #D94F00;
+  transform: translateY(-3px);
 }
 
-.hero h1:hover,
-.hero p:hover {
-  transform: translateY(-5px);
-  color: #FCECDD;
+.floating-ghost {
+  position: absolute;
+  top: 10%;
+  left: 70%;
+  width: 60px;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }

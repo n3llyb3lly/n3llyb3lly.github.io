@@ -2,26 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nelson Serrano | Portfolio</title>
-  <link rel="stylesheet" href="style/main.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nelson Serrano Portfolio</title>
+  <link rel="stylesheet" href="style/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="background-gradient"></div>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="films.html">Films</a></li>
-      <li><a href="music.html">Music & Sound</a></li>
-      <li><a href="hinterland.html">Hinterland</a></li>
-    </ul>
+  <img src="assets/ghost.png" alt="floating ghost" class="floating-ghost">
+
+  <section class="intro">
+    <div class="typewriter" id="typewriter-text"></div>
+  </section>
+
+  <nav class="tabs">
+    <a href="films.html">Films</a>
+    <a href="music.html">Music & Sound</a>
+    <a href="hinterland.html">Hinterland</a>
   </nav>
 
-  <header class="hero">
-    <h1 data-parallax>Nelson Serrano</h1>
-    <p data-parallax>Interdisciplinary Artist & Analyst</p>
-  </header>
   <script src="js/parallax.js"></script>
+  <script src="js/typewriter.js"></script>
 </body>
 </html>

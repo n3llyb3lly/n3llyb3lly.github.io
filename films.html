@@ -2,35 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Films | Nelson Serrano</title>
-  <link rel="stylesheet" href="style/main.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Films – Nelson Serrano</title>
+  <link rel="stylesheet" href="style/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="background-gradient"></div>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="films.html">Films</a></li>
-      <li><a href="music.html">Music & Sound</a></li>
-      <li><a href="hinterland.html">Hinterland</a></li>
-    </ul>
-  </nav>
-
-  <header class="hero">
-    <h1 data-parallax>Films</h1>
-    <p data-parallax>Higher Living · Linger</p>
-  </header>
+  <img src="assets/alien.png" class="floating-png" style="top: 15%; left: 10%;" />
+  <img src="assets/cassette.png" class="floating-png" style="bottom: 10%; right: 5%;" />
 
   <section class="content">
-    <h2>Higher Living</h2>
-    <p>A short film made in less than three weeks, exploring [insert your brief blurb here].</p>
-    <!-- Add video embed or still frame + link -->
-    <h2>Linger</h2>
-    <p>An experimental short about [insert description].</p>
-    <!-- Add video embed or still frame + link -->
+    <h1>Films</h1>
+    <p>These are two of my favorite short film projects.</p>
+
+    <div class="film-entry">
+      <h2>Higher Living</h2>
+      <p>A surreal, low-fi short exploring burnout, loneliness, and the uncanny residue of digital life.</p>
+      <!-- Optional: Add video embed or image -->
+    </div>
+
+    <div class="film-entry">
+      <h2>Linger</h2>
+      <p>A quieter piece on memory and companionship, stitched together from fragments and voiceover.</p>
+    </div>
   </section>
+
+  <nav class="tabs">
+    <a href="index.html">Home</a>
+    <a href="music.html">Music</a>
+    <a href="hinterland.html">Hinterland</a>
+  </nav>
+
   <script src="js/parallax.js"></script>
 </body>
 </html>
