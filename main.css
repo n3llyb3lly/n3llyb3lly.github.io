@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: 'Share Tech Mono', monospace;
+  background: linear-gradient(to bottom, #222, #00809D);
+  color: #FCECDD;
+  overflow-x: hidden;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  background-color: #222;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 1.5em;
+}
+
+nav ul li a {
+  color: #FCECDD;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #FF7601;
+  transform: translateY(-5px);
+}
+
+.hero {
+  text-align: center;
+  padding: 5em 1em;
+}
+
+.hero h1 {
+  font-size: 3em;
+  color: #FF7601;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero p {
+  font-size: 1.5em;
+  color: #F3A26D;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero h1:hover,
+.hero p:hover {
+  transform: translateY(-5px);
+  color: #FCECDD;
+}
+
+.floating-images {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.floating-images img {
+  position: absolute;
+  width: 80px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-images img:nth-child(1) { top: 10%; left: 5%; }
+.floating-images img:nth-child(2) { top: 30%; left: 75%; }
+.floating-images img:nth-child(3) { top: 60%; left: 10%; }
+.floating-images img:nth-child(4) { top: 80%; left: 80%; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
