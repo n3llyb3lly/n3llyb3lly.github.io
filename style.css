@@ -168,6 +168,44 @@ pre#typewriter {
   word-break: break-word;  /* Breaks long words if needed */
 }
 
+.video-frame-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+  border: 4px solid #7fffd4; /* Example: aquamarine */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+
+.video-frame-container:nth-child(1) {
+  border-color: #7fffd4; /* Example: aquamarine */
+}
+.video-frame-container:nth-child(2) {
+  border-color: #ffb347; /* Example: orange */
+}
+
+.video-title {
+  position: absolute;
+  top: 250px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  z-index: 2;
+  pointer-events: none;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.video-frame-container iframe {
+  display: block;
+  width: 100%;
+  height: 315px;
+  border: none;
+}
+
 /* Responsive wrapping for .intro and .content */
 @media (max-width: 600px) {
   .intro, .content {
