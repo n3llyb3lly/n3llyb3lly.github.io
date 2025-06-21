@@ -53,11 +53,19 @@ nav a:hover {
 }
 
 .ghost {
-  position: fixed;
-  left: 0;         /* Allow JS to control horizontal position */
+  position: absolute; /* Change from fixed to absolute */
+  left: 0;
   width: 80px;
   pointer-events: none;
   z-index: 10;
+}
+
+.ufo {
+  position: absolute;
+  left: 0;
+  width: 100px; /* Adjust as needed */
+  pointer-events: none;
+  z-index: 11;
 }
 
 @keyframes floatGhost {

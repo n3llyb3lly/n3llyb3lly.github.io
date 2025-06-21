@@ -11,7 +11,7 @@ For those who create because they have to...
 Take what you need :)`;
 
 let i = 0;
-const speed = 50;
+const speed = 25;
 const target = document.getElementById("typewriter");
 
 function typeWriter() {
@@ -66,8 +66,8 @@ function animateGhost() {
         if (progress < 1) {
             requestAnimationFrame(frame);
         } else {
-            // Restart animation with a new random Y
-            animateGhost();
+            // Restart animation with a new random Y after 10 seconds
+            setTimeout(animateGhost, 10000);
         }
     }
 
@@ -77,8 +77,64 @@ function animateGhost() {
 // Start animation
 animateGhost();
 
+// UFO movement: smooth horizontal float with gentle vertical bob
+const ufo = document.querySelector('.ufo');
+
+function animateUfo() {
+    const ufoWidth = ufo.offsetWidth || 100;
+    const screenWidth = window.innerWidth;
+    const startLeft = -ufoWidth;
+    const endLeft = screenWidth;
+    const duration = 20000; // 20 seconds for a full pass
+
+    let startTime = null;
+
+    // Pick a random vertical position between 10% and 50% of the viewport height
+    const minY = 0.10;
+    const maxY = 0.50;
+    const randomY = Math.random() * (maxY - minY) + minY;
+    const baseTop = window.innerHeight * randomY;
+
+    function frame(now) {
+        if (!startTime) startTime = now;
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Horizontal movement (left to right)
+        const left = startLeft + (endLeft - startLeft) * progress;
+        ufo.style.left = `${left}px`;
+
+        // Gentle vertical bobbing
+        const bob = Math.cos(progress * Math.PI * 2) * 15; // 15px up/down
+        ufo.style.top = `${baseTop + bob}px`;
+
+        // Fade in/out at edges
+        if (progress < 0.05) {
+            ufo.style.opacity = progress / 0.05;
+        } else if (progress > 0.95) {
+            ufo.style.opacity = (1 - progress) / 0.05;
+        } else {
+            ufo.style.opacity = 1;
+        }
+
+        if (progress < 1) {
+            requestAnimationFrame(frame);
+        } else {
+            // Restart animation with a new random Y after 10 seconds
+            setTimeout(animateUfo, 10000);
+        }
+    }
+
+    requestAnimationFrame(frame);
+}
+
+// Start UFO animation
+animateUfo();
+
 // Optional: restart animation on resize for responsiveness
 window.addEventListener('resize', () => {
     ghost.style.left = `${window.innerWidth}px`;
     animateGhost();
+    ufo.style.left = `${-ufo.offsetWidth}px`;
+    animateUfo();
 });
