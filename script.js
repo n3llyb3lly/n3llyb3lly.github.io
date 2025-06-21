@@ -1,9 +1,9 @@
 // Typewriter effect
 const text = `Welcome.
 You’ve found my curious collection of ghosts and glitches!
-These are experiments in sound, image, and interaction. Some are rough. Most are unfinished. All of them are mine.
+These are experiments in sound and image. Some are rough. Many are unfinished. All of them are mine.
 
-I’m Nelson Serrano, an artist and psych graduate drawn to the ephemeral and uncanny. My work lives in the in-between the dreams of Appalachian cryptids and the signal of a deep space sattelite: films, games, music, and ideas that cover isolation, friendship, magical realism, and the quality of being alien. 
+I’m Nelson Serrano, an artist and psych graduate drawn to the ephemeral and uncanny. My work lives in between the dreams of Appalachian cryptids and the signal of a deep space sattelite: films, games, music, and ideas that cover isolation, friendship, magical realism, and the quality of being alien. 
 These are things I’d want to find by accident and things I've always wanted someone to make.
 
 For those who create because they have to...
