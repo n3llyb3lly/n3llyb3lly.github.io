@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  font-family: 'Share Tech Mono', monospace;
+  background: linear-gradient(to bottom, #FCECDD, #F3A26D);
+  color: #00809D;
+  overflow-x: hidden;
+  background-attachment: fixed;
+  font-size: 25px; /* Regular text size */
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #FF7601;
+  padding: 1.2rem 0; /* Slightly larger padding for consistency */
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-size: 1.1rem; /* Make nav font size consistent and readable */
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style-type: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  transform: translateY(-5px);
+  color: #FCECDD;
+}
+
+.intro {
+    box-sizing: border-box;
+    padding: 1.2rem 1rem 2rem;
+    width: 95vw;
+    max-width: 750px;
+    min-width: 0;
+    margin: 0 auto;
+    line-height: 1.5;
+    display: block;
+    word-break: break-word;
+    text-align: left;
+}
+
+.ghost {
+  position: fixed;
+  left: 0;         /* Allow JS to control horizontal position */
+  width: 80px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes floatGhost {
+  0%   { right: -150px; top: 20%; }
+  100% { right: 110%; top: calc(20% + 40vh * var(--ghost-random)); }
+}
+
+.content {
+  max-width: 800px;
+  margin: 6.5rem auto 4rem; /* Adjust top margin to match nav height */
+  padding: 1rem;
+  text-align: center;
+}
+
+.hero {
+  margin-top: 6rem;
+  text-align: center;
+  color: #00809D;
+  letter-spacing: 0.03em;
+  font-size: 40px;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+.hero:hover {
+  color: #FF7601;
+  transform: scale(1.04) rotate(-1deg);
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3rem); /* Responsive, but keeps max size */
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero p {
+  font-size: clamp(1.2rem, 3vw, 1.5rem); /* Responsive, but keeps max size */
+  color: #FF7601;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero-subtitle {
+  font-size: 30px;
+  color: #FF7601;
+  margin-top: -1rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  letter-spacing: 0.02em;
+  transition: color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+.hero-subtitle:hover {
+  color: #00809D;
+  transform: scale(1.03) rotate(1deg);
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #FF7601;
+  letter-spacing: 0.01em;
+  transition: color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+.section-title:hover {
+  color: #00809D;
+  transform: scale(1.03);
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #00809D;
+  margin-bottom: 2rem;
+  margin-top: -1rem;
+  text-align: center;
+  font-style: italic;
+  transition: color 0.3s;
+}
+.section-subtitle:hover {
+  color: #FF7601;
+}
+
+.video-block, .audio-block, .game-block {
+  margin: 3rem 0;
+}
+
+.hover-bob {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: default;
+}
+
+.hover-bob:hover {
+  transform: translateY(-5px);
+  color: #F3A26D;
+}
+
+pre#typewriter {
+  white-space: pre-wrap;   /* Allows wrapping */
+  word-break: break-word;  /* Breaks long words if needed */
+}
+
+/* Responsive wrapping for .intro and .content */
+@media (max-width: 600px) {
+  .intro, .content {
+    max-width: 98vw;
+    width: 98vw;
+  }
+}

@@ -2,27 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nelson Serrano Portfolio</title>
-  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="background-gradient"></div>
-
-  <img src="assets/ghost.png" alt="floating ghost" class="floating-ghost">
-
-  <section class="intro">
-    <div class="typewriter" id="typewriter-text"></div>
-  </section>
-
-  <nav class="tabs">
-    <a href="films.html">Films</a>
-    <a href="music.html">Music & Sound</a>
-    <a href="hinterland.html">Hinterland</a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="films.html">Films</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="hinterland.html">Hinterland</a></li>
+    </ul>
   </nav>
 
-  <script src="js/parallax.js"></script>
-  <script src="js/typewriter.js"></script>
+  <main class="content">
+    <h1 class="hero">Nelson Serrano</h1>
+    <p class="hero-subtitle">Interdisciplinary Artist & Analyst</p>
+
+    <img src="assets/ghost.png" alt="ghost" class="ghost" />
+
+    <section class="intro">
+      <pre id="typewriter"></pre>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

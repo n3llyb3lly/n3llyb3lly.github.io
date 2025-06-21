@@ -3,37 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Music & Sound – Nelson Serrano</title>
-  <link rel="stylesheet" href="style/main.css">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <title>Music – Nelson Serrano</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <div id="background-gradient"></div>
-
-  <img src="assets/guitar.png" class="floating-png" style="top: 5%; right: 10%;" />
-  <img src="assets/fox.png" class="floating-png" style="bottom: 10%; left: 5%;" />
-
-  <section class="content">
-    <h1>Music & Sound Design</h1>
-    <p>These tracks are drawn from game scores, late-night recordings, and little audio ghosts I couldn't let go of.</p>
-
-    <div class="music-entry">
-      <h2>Superstar</h2>
-      <p>A sleazy top-40 hit from a distant future. Made for a film pitch.</p>
-    </div>
-
-    <div class="music-entry">
-      <h2>The Cold</h2>
-      <p>My more typical sound: eerie textures, somber pacing, with a touch of warmth.</p>
-    </div>
-  </section>
-
-  <nav class="tabs">
-    <a href="index.html">Home</a>
-    <a href="films.html">Films</a>
-    <a href="hinterland.html">Hinterland</a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="films.html">Films</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="hinterland.html">Hinterland</a></li>
+    </ul>
   </nav>
 
-  <script src="js/parallax.js"></script>
+  <main class="content">
+    <h1 class="hero">Music + Sound</h1>
+    <p class="hero-subtitle">Original compositions, experiments, and soundtracks.</p>
+
+    <section class="audio-block">
+      <h2 class="hover-bob">Superstar</h2>
+      <audio controls>
+        <source src="assets/superstar.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+
+    <section class="audio-block">
+      <h2 class="hover-bob">The Cold</h2>
+      <audio controls>
+        <source src="assets/thecold.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+  </main>
 </body>
 </html>

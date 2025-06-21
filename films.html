@@ -4,37 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Films – Nelson Serrano</title>
-  <link rel="stylesheet" href="style/main.css">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <div id="background-gradient"></div>
-
-  <img src="assets/alien.png" class="floating-png" style="top: 15%; left: 10%;" />
-  <img src="assets/cassette.png" class="floating-png" style="bottom: 10%; right: 5%;" />
-
-  <section class="content">
-    <h1>Films</h1>
-    <p>These are two of my favorite short film projects.</p>
-
-    <div class="film-entry">
-      <h2>Higher Living</h2>
-      <p>A surreal, low-fi short exploring burnout, loneliness, and the uncanny residue of digital life.</p>
-      <!-- Optional: Add video embed or image -->
-    </div>
-
-    <div class="film-entry">
-      <h2>Linger</h2>
-      <p>A quieter piece on memory and companionship, stitched together from fragments and voiceover.</p>
-    </div>
-  </section>
-
-  <nav class="tabs">
-    <a href="index.html">Home</a>
-    <a href="music.html">Music</a>
-    <a href="hinterland.html">Hinterland</a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="films.html">Films</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="hinterland.html">Hinterland</a></li>
+    </ul>
   </nav>
 
-  <script src="js/parallax.js"></script>
+  <main class="content">
+    <h1 class="hero">Films</h1>
+    <p class="hero-subtitle">Short films, experiments, and visual stories.</p>
+
+    <section class="video-block">
+      <h2 class="hover-bob">Higher Living</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/your_high_living_video_id" 
+              title="Higher Living" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section class="video-block">
+      <h2 class="hover-bob">Linger</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/your_linger_video_id" 
+              title="Linger" frameborder="0" allowfullscreen></iframe>
+    </section>
+  </main>
 </body>
 </html>
