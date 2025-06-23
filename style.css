@@ -53,19 +53,21 @@ nav a:hover {
 }
 
 .ghost {
-  position: absolute; /* Change from fixed to absolute */
+  position: absolute;
   left: 0;
   width: 80px;
-  pointer-events: none;
+  pointer-events: auto; /* Make clickable */
   z-index: 10;
 }
 
 .ufo {
   position: absolute;
   left: 0;
-  width: 100px; /* Adjust as needed */
-  pointer-events: none;
+  width: 100px;
+  pointer-events: auto;
   z-index: 11;
+  opacity: 0; /* Hide UFO initially */
+  transition: opacity 0.3s;
 }
 
 @keyframes floatGhost {

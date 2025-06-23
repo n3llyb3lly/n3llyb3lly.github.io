@@ -1,10 +1,9 @@
 // Typewriter effect
-const text = `Welcome.
-You’ve found my curious collection of ghosts and glitches!
-These are experiments in sound and image. Some are rough. Many are unfinished. All of them are mine.
+const text = `Welcome to my curious collection of ghosts and glitches!
+These are experiments in sound and image. Some are rough, many are unfinished, but all of them are mine!
 
-I’m Nelson Serrano, an artist and psych graduate drawn to the ephemeral and uncanny. My work lives in between the dreams of Appalachian cryptids and the signal of a deep space sattelite: films, games, music, and ideas that cover isolation, friendship, magical realism, and the quality of being alien. 
-These are things I’d want to find by accident and things I've always wanted someone to make.
+I’m Nelson Serrano, a psych graduate and artist drawn to the ephemeral and uncanny. My work lives in between the dreams of Appalachian cryptids and the signal of a deep space sattelite: films, games, music, and ideas that cover isolation, friendship, magical realism, and the quality of being alien. 
+These are things I’d want to find by accident and things I've always wanted someone else to make.
 
 For those who create because they have to...
 
@@ -74,8 +73,11 @@ function animateGhost() {
     requestAnimationFrame(frame);
 }
 
-// Start animation
-animateGhost();
+// Make ghost clickable
+ghost.style.cursor = "pointer";
+ghost.addEventListener('click', () => {
+    window.location.href = "music.html";
+});
 
 // UFO movement: smooth horizontal float with gentle vertical bob
 const ufo = document.querySelector('.ufo');
@@ -128,13 +130,22 @@ function animateUfo() {
     requestAnimationFrame(frame);
 }
 
-// Start UFO animation
-animateUfo();
+// Make UFO clickable
+ufo.style.cursor = "pointer";
+ufo.addEventListener('click', () => {
+    window.location.href = "films.html#higher-living";
+});
+
+// Start ghost animation immediately
+animateGhost();
+
+// Start UFO animation after 5 seconds
+setTimeout(animateUfo, 5000);
 
 // Optional: restart animation on resize for responsiveness
 window.addEventListener('resize', () => {
     ghost.style.left = `${window.innerWidth}px`;
     animateGhost();
     ufo.style.left = `${-ufo.offsetWidth}px`;
-    animateUfo();
+    setTimeout(animateUfo, 5000);
 });
