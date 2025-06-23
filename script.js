@@ -149,3 +149,17 @@ window.addEventListener('resize', () => {
     ufo.style.left = `${-ufo.offsetWidth}px`;
     setTimeout(animateUfo, 5000);
 });
+
+// Highlight currently playing audio block
+document.querySelectorAll('.audio-block audio').forEach(audio => {
+  audio.addEventListener('play', function() {
+    document.querySelectorAll('.audio-block').forEach(block => block.classList.remove('playing'));
+    this.closest('.audio-block').classList.add('playing');
+  });
+  audio.addEventListener('pause', function() {
+    this.closest('.audio-block').classList.remove('playing');
+  });
+  audio.addEventListener('ended', function() {
+    this.closest('.audio-block').classList.remove('playing');
+  });
+});
