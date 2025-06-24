@@ -337,7 +337,14 @@
     <div class="terminal-header" id="terminal-header"></div>
     <div class="terminal-body" id="terminal-body"></div>
     <div class="form-and-links" id="formAndLinks">
-      <form class="terminal-form" id="contact-form">
+      <form 
+        class="terminal-form" 
+        id="contact-form"
+        action="https://formkeep.com/f/ad4e617e3506"
+        accept-charset="UTF-8"
+        enctype="multipart/form-data"
+        method="POST"
+      >
         <label for="name">NAME:</label>
         <input type="text" id="name" name="name" autocomplete="off" maxlength="32" required />
         <label for="message">MESSAGE:</label>
@@ -440,7 +447,6 @@
 
     // Form submission
     formEl.addEventListener('submit', function(e) {
-      e.preventDefault();
       send.currentTime = 0;
       send.play();
       bodyEl.innerHTML = "MESSAGE SENT SUCCESSFULLY.<br>RETURNING TO MENU...";
