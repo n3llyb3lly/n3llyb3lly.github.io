@@ -12,7 +12,7 @@ body {
   color: var(--accent1);
   overflow-x: hidden;
   background-attachment: fixed;
-  font-size: 25px; /* Regular text size */
+  font-size: clamp(1rem, 2.5vw, 1.25rem); /* Responsive base font size */
   transition: opacity 0.3s, background 1.2s, color 1.2s;
   opacity: 0;
 }
@@ -70,7 +70,7 @@ nav a:hover {
     box-sizing: border-box;
     padding: 1.2rem 1rem 2rem;
     width: 95vw;
-    max-width: 750px;
+    max-width: 47rem;
     min-width: 0;
     margin: 0 auto;
     line-height: 1.5;
@@ -105,18 +105,18 @@ nav a:hover {
 .content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
-  margin: 7rem auto 4rem; /* Adjust top margin to match nav height */
+  max-width: 50rem;
+  margin: 7vh auto 4vh; /* Adjust top margin to match nav height */
   padding: 1rem;
   text-align: center;
 }
 
 .hero {
-  margin-top: 6rem;
+  margin-top: 6vh;
   text-align: center;
   color: var(--accent1);
   letter-spacing: 0.03em;
-  font-size: 40px;
+  font-size: clamp(2.2rem, 6vw, 3rem);
   font-weight: bold;
   transition: color 0.3s, transform 0.3s;
   cursor: pointer;
@@ -139,8 +139,7 @@ nav a:hover {
 }
 
 .hero-subtitle {
-  font-size: 30px;
-  color: #FF7601;
+  font-size: clamp(1.2rem, 4vw, 2rem);
   margin-top: -1rem;
   margin-bottom: 2.5rem;
   text-align: center;
@@ -154,7 +153,7 @@ nav a:hover {
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 1rem;
   color: #FF7601;
   letter-spacing: 0.01em;
@@ -167,7 +166,7 @@ nav a:hover {
 }
 
 .section-subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: #00809D;
   margin-bottom: 2rem;
   margin-top: -1rem;
@@ -180,7 +179,7 @@ nav a:hover {
 }
 
 .video-block, .audio-block, .game-block {
-  margin: 3rem 0;
+  margin: 3vh 0;
 }
 
 .hover-bob {
@@ -230,7 +229,7 @@ pre#typewriter {
   display: inline-block;
   margin-bottom: 2rem;
   border: 4px solid #7fffd4; /* Example: aquamarine */
-  border-radius: 12px;
+  border-radius: 0.75em;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0,0,0,0.15);
 }
@@ -249,7 +248,7 @@ pre#typewriter {
   width: 100%;
   text-align: center;
   color: #fff;
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 4vw, 2rem);
   text-shadow: 0 2px 8px rgba(0,0,0,0.7);
   z-index: 2;
   pointer-events: none;
@@ -259,7 +258,9 @@ pre#typewriter {
 .video-frame-container iframe {
   display: block;
   width: 100%;
-  height: 315px;
+  height: 32vw;
+  min-height: 200px;
+  max-height: 315px;
   border: none;
 }
 
@@ -269,7 +270,7 @@ pre#typewriter {
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   padding: 2rem 1.5rem 2.5rem 1.5rem;
   margin: 2.5rem auto;
-  max-width: 500px;
+  max-width: 31rem;
   position: relative;
   transition: box-shadow 0.3s, border 0.3s;
 }
@@ -280,7 +281,7 @@ pre#typewriter {
 }
 
 .track-blurb {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   color: #00809D;
   margin: 0.5rem 0 1.2rem 0;
   font-style: italic;
@@ -291,7 +292,7 @@ pre#typewriter {
 }
 
 .video-description {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   color: #00809D;
   margin-top: 0.5rem;
   line-height: 1.4;
@@ -316,7 +317,10 @@ audio {
     max-width: 98vw;
     width: 98vw;
   }
+  #contact-envelope { width: 2em; height: 2em; }
+  #contact-link { top: 0.5rem; right: 0.7rem; }
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -462,8 +466,8 @@ nav,
 
 #contact-link {
   position: fixed;
-  top: 1.2rem;
-  right: 1.5rem;
+  top: 2vw;
+  right: 2vw;
   z-index: 1200;
   display: flex;
   align-items: center;
@@ -476,8 +480,8 @@ nav,
   outline: none;
 }
 #contact-envelope {
-  width: 44px;
-  height: 44px;
+  width: 2.75em;
+  height: 2.75em;
   display: block;
   filter: drop-shadow(0 2px 6px #0006);
   transition: transform 0.18s;
@@ -487,7 +491,7 @@ nav,
   transform: scale(1.12) rotate(-8deg);
 }
 @media (max-width: 600px) {
-  #contact-envelope { width: 34px; height: 34px; }
+  #contact-envelope { width: 2em; height: 2em; }
   #contact-link { top: 0.5rem; right: 0.7rem; }
 }
 
@@ -530,10 +534,10 @@ nav,
   border-top: none;
   border-radius: 0 0 8px 8px;
   box-shadow: 0 4px 16px #00ff0033;
-  min-width: 180px;
+  min-width: 12em;
   padding: 0.5em 0;
   align-items: stretch;
-  max-height: 0;
+  max-height: 25em;
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.33s cubic-bezier(0.4,0,0.2,1), opacity 0.22s;
@@ -563,4 +567,18 @@ nav,
   color: #181C18;
   outline: none;
   text-shadow: 0 0 8px #00FF00;
+}
+
+/* Terminal link buttons */
+.terminal-link-btn {
+  font-size: 1em;
+  padding: 0.45em 0.7em;
+  width: 90vw;
+  max-width: 30rem;
+}
+@media (max-width: 600px) {
+  .terminal-link-btn {
+    width: 98vw;
+    max-width: 98vw;
+  }
 }
