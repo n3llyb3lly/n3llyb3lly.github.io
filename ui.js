@@ -64,9 +64,7 @@ These are experiments in sound and image. Some are rough, many are unfinished, b
 I’m Nelson Serrano, a psych graduate and artist drawn to the ephemeral and uncanny. My work lives in between the dreams of Appalachian cryptids and the signal of a deep space sattelite: films, games, music, and ideas that cover isolation, friendship, magical realism, and the quality of being alien. 
 These are things I’d want to find by accident and things I've always wanted someone else to make.
 
-For those who create because they have to...
-
-Take what you need :)`;
+Thanks for coming:)`;
   let i = 0;
   const speed = 25;
   const target = document.getElementById("typewriter");

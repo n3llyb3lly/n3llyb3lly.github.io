@@ -22,7 +22,7 @@
     <h1 class="hero">Films</h1>
     <p class="hero-subtitle">Short films, experiments, and visual stories.</p>
 
-    <section class="video-block" id="higher-living">
+    <section class="video-block" id="higher-living" data-palette="higherliving">
       <div class="video-frame-container">
         <h2 class="hover-bob video-title">Higher Living</h2>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/4JtCrQ4ELsk" 
@@ -53,6 +53,7 @@
   import { highlightPlayingAudio } from './audio.js';
   import { sectionFadeIn, pageFadeInOnLoad, pageFadeOutOnNav } from './navigation.js';
   import { paletteSwitcher, hoverDialogue, typewriterEffect } from './ui.js';
+  import { paletteScrollObserver } from './palette.js';
 
   // Call only what you need for this page:
   animateGhost();
@@ -66,6 +67,7 @@
   paletteSwitcher();
   hoverDialogue();
   typewriterEffect();
+  paletteScrollObserver();
 
   document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('filmAutoplay') === 'higher-living') {

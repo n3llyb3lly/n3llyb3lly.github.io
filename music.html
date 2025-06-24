@@ -22,10 +22,10 @@
     <h1 class="hero">Music + Sound</h1>
     <p class="hero-subtitle">Original compositions and soundtracks.</p>
 
-    <section class="audio-block">
-      <h2 class="hover-bob">Superstar</h2>
+    <section class="audio-block" data-palette="superstar">
+      <h2 class="hover-bob">Superstar (V2.)</h2>
       <p class="track-blurb">
-        This was commissioned by an independent filmmaker who wanted a sleazy top 40s disco hit from the future.
+        Superstar (V2.) was commissioned by an independent filmmaker who wanted a sleazy top 40s disco hit from the future.
       </p>
       <audio controls id="audio-superstar">
         <source src="assets/Superstar.mp3" type="audio/mpeg" />
@@ -36,7 +36,7 @@
       </div>
     </section>
 
-    <section class="audio-block">
+    <section class="audio-block" data-palette="thecold">
       <h2 class="hover-bob">The Cold</h2>
       <p class="track-blurb">
         The Cold was completed using open source software (Cakewalk) and plugins. Though I have since moved to Ableton, this is my first song that I am proud of production-wise.
@@ -59,6 +59,8 @@
   import { highlightPlayingAudio } from './audio.js';
   import { sectionFadeIn, pageFadeInOnLoad, pageFadeOutOnNav } from './navigation.js';
   import { paletteSwitcher } from './ui.js';
+  import { paletteScrollObserver } from './palette.js';
+
 
   animateGhost();
   animateUfo();
@@ -69,6 +71,7 @@
   pageFadeInOnLoad();    
   pageFadeOutOnNav();
   paletteSwitcher();
+  paletteScrollObserver();
 
   document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('musicAutoplay') === 'cold') {

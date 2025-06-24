@@ -417,3 +417,19 @@ body.color-pulse {
 .audio-block.playing .audio-visualizer div {
   background: var(--accent2);
 }
+
+/* Smooth palette transitions for all key elements */
+body,
+#animated-bg,
+nav,
+.intro,
+.content,
+.audio-block,
+.video-block,
+.game-block {
+  transition:
+    background 1.2s cubic-bezier(.4,0,.2,1),
+    background-color 1.2s cubic-bezier(.4,0,.2,1),
+    color 1.2s cubic-bezier(.4,0,.2,1),
+    border-color 1.2s cubic-bezier(.4,0,.2,1);
+}

@@ -27,7 +27,7 @@
     <img src="assets/ufo.png" alt="ufo" class="ufo" />
     <div class="hover-dialogue" id="ufo-dialogue">🛸 Take me to your films!</div>
 
-    <section class="intro">
+    <section class="intro" data-palette="base">
       <pre id="typewriter"></pre>
     </section>
   </main>
@@ -41,6 +41,8 @@
   import { highlightPlayingAudio } from './audio.js';
   import { sectionFadeIn, pageFadeInOnLoad, pageFadeOutOnNav } from './navigation.js';
   import { paletteSwitcher, hoverDialogue, typewriterEffect, ghostAndUfoNavigation } from './ui.js';
+  import { paletteScrollObserver } from './palette.js';
+
 
   animateGhost();
   animateUfo();
@@ -53,6 +55,7 @@
   hoverDialogue();
   typewriterEffect();
   ghostAndUfoNavigation();
+  paletteScrollObserver();
 </script>
 </body>
 </html>
