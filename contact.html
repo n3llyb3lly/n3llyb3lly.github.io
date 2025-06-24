@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact // Nelson Serrano Logbook</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --terminal-max-width: 55rem;
+      --terminal-padding: 1.2em;
+      --form-max-width: 30rem;
+      --link-btn-width: 30rem;
+      --font-base: 1.2em;
+    }
+    body {
+      background: #0A0A0A;
+      color: #7CFF7C;
+      font-family: 'VT323', 'Share Tech Mono', monospace;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      text-shadow: 0 0 8px #00FF00, 0 0 2px #00FF00;
+      font-size: var(--font-base);
+    }
+    .terminal {
+      background: #181C18;
+      border: 0.19em solid #00FF00;
+      border-radius: 0.75em;
+      box-shadow: 0 0 2em #00ff0033, 0 0 0.13em #00ff00;
+      max-width: var(--terminal-max-width);
+      width: 100vw;
+      padding: var(--terminal-padding);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      box-sizing: border-box;
+      margin: .15em auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: border-color 0.7s cubic-bezier(.4,2,.6,1), box-shadow 0.7s cubic-bezier(.4,2,.6,1);
+    }
+    .terminal.terminal-animate {
+      border-color: #FFD700;
+      box-shadow: 0 0 3em #FFD70099, 0 0 0.5em #FFD700;
+    }
+    .terminal-header, .terminal-body {
+      word-break: break-all;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+      width: 100%;
+      text-align: center;
+    }
+    .terminal-header {
+      font-size: 1.1em;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.7em;
+      color: #00FF00;
+      text-shadow: 0 0 0.4em #00ff00cc;
+      min-height: 2em;
+    }
+    .terminal-body {
+      font-size: 1em;
+      line-height: 1.4;
+      margin-bottom: 0.3em;
+      min-height: 2.2em;
+    }
+    /* Dropdown button */
+    .dropdown-btn {
+      background: none;
+      color: #00FF00;
+      border: none;
+      font-family: inherit;
+      font-size: 1.1em;
+      padding: 0.2em 1em;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      margin-top: -.5em;
+      margin-right: 0.2em;
+      outline: none;
+      transition: color 0.2s;
+      align-self: flex-end;
+      position: relative;
+      z-index: 11;
+    }
+    .dropdown-btn:hover, .dropdown-btn:focus {
+      color: #FFD700;
+    }
+    .dropdown-menu {
+      display: none;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-top: 0.2em;
+      width: max-content;
+      min-width: 8em;
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      position: absolute;
+      top: 2.2em;
+      right: 0;
+      z-index: 10;
+    }
+    .dropdown-menu.open {
+      display: flex;
+    }
+    .dropdown-menu a {
+      color: #00FF00;
+      text-decoration: none;
+      padding: 0.4em 1em;
+      font-family: inherit;
+      font-size: 1.05em;
+      border-radius: 0.25em;
+      transition: background 0.18s, color 0.18s;
+      text-align: right;
+      display: block;
+      position: relative;
+    }
+    .dropdown-menu a:hover, .dropdown-menu a:focus {
+      background: none;
+      color: #7CFF7C;
+      outline: none;
+    }
+    .dropdown-menu a::before {
+      content: ">";
+      color: #7CFF7C;
+      font-weight: bold;
+      margin-right: 0.5em;
+      opacity: 0;
+      transition: opacity 0.18s;
+    }
+    .dropdown-menu a:hover::before,
+    .dropdown-menu a:focus::before {
+      opacity: 1;
+    }
+    .form-and-links {
+      width: 100%;
+      max-width: var(--form-max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(1.5em) scale(0.98);
+      pointer-events: none;
+      transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+    }
+    .form-and-links.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    .terminal-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .terminal-form label {
+      align-self: flex-start;
+      margin: 0.7em 0 0.2em 0;
+      color: #00FF00;
+      font-family: inherit;
+      font-size: 1em;
+      letter-spacing: 0.02em;
+    }
+    .terminal-form input,
+    .terminal-form textarea {
+      width: 100%;
+      background: #111;
+      border: none;
+      border-bottom: 0.13em solid #00FF00;
+      color: #00FF00;
+      font-family: inherit;
+      font-size: 1em;
+      padding: 0.3em 0.2em;
+      margin-bottom: 0.6em;
+      outline: none;
+      resize: none;
+      transition: border-color 0.2s;
+    }
+    .terminal-form input:focus,
+    .terminal-form textarea:focus {
+      border-bottom: 0.13em solid #FFD700;
+    }
+    .terminal-form button {
+      display: inline-block;
+      background: transparent;
+      color: #00FF00;
+      border: 0.1em solid #00FF00;
+      border-radius: 0.25em;
+      font-family: inherit;
+      font-size: 1em;
+      padding: 0.3em 1.2em;
+      margin: 1em 0 0.5em 0;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      box-shadow: 0 0 0.5em #00ff0033;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      position: relative;
+    }
+    .terminal-form button:hover {
+      background: #00FF00;
+      color: #0A0A0A;
+      border-color: #FFD700;
+      text-shadow: 0 0 0.5em #FFD700;
+    }
+    .terminal-links {
+      margin-top: 1em;
+      border-top: 0.07em solid #00FF00;
+      padding-top: 1em;
+      font-size: 1em;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      align-items: center;
+    }
+    .terminal-link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: #00FF00;
+      border: 0.1em solid #00FF00;
+      border-radius: 0.25em;
+      font-family: inherit;
+      font-size: 1em;
+      padding: 0.45em 0.7em;
+      margin: 0.1em 0;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      box-shadow: 0 0 0.5em #00ff0033;
+      transition: background 0.18s, color 0.18s, border-color 0.18s;
+      text-align: center;
+      width: var(--link-btn-width);
+      min-width: 0;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+      gap: 0.7em;
+    }
+    .terminal-link-btn .link-alt {
+      opacity: 0;
+      max-width: 0;
+      overflow: hidden;
+      transition: opacity 0.18s, max-width 0.18s;
+      color: #7CFF7C;
+      margin-left: 0.5em;
+      font-size: 0.97em;
+      font-family: inherit;
+    }
+    .terminal-link-btn:hover .link-alt,
+    .terminal-link-btn:focus .link-alt {
+      opacity: 1;
+      max-width: 18em;
+    }
+    .terminal-link-btn .link-main {
+      transition: opacity 0.18s;
+    }
+    .terminal-link-btn:hover .link-main,
+    .terminal-link-btn:focus .link-main {
+      opacity: 0.5;
+    }
+    .cursor {
+      font-weight: bold;
+      font-size: 1.1em;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .scanlines {
+      pointer-events: none;
+      position: absolute;
+      left: 0; top: 0; width: 100%; height: 100%;
+      z-index: 2;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,255,0,0.04) 0px,
+        rgba(0,255,0,0.04) 1.5px,
+        transparent 1.5px,
+        transparent 4px
+      );
+      mix-blend-mode: lighten;
+      opacity: 0.18;
+    }
+    /* Contact icon top right */
+    #contact-link {
+      position: fixed;
+      top: 1.2rem;
+      right: 1.5rem;
+      z-index: 1200;
+      display: flex;
+      align-items: center;
+      background: none;
+      border-radius: 50%;
+      transition: box-shadow 0.2s;
+    }
+    #contact-link:hover, #contact-link:focus {
+      box-shadow: 0 0 0 4px var(--accent2, #FF7601), 0 2px 8px #0004;
+      outline: none;
+    }
+    @media (max-width: 600px) {
+      :root {
+        --terminal-max-width: 99vw;
+        --form-max-width: 98vw;
+        --link-btn-width: 90vw;
+        --font-base: 0.97em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="terminal" id="terminal">
+    <!-- Dropdown nav at top right INSIDE terminal -->
+    <button class="dropdown-btn" id="dropdownBtn" aria-label="Open navigation">≡ MENU</button>
+    <div class="dropdown-menu" id="dropdownMenu">
+      <a href="index.html">[HOME]</a>
+      <a href="films.html">[FILMS]</a>
+      <a href="music.html">[MUSIC]</a>
+      <a href="hinterland.html">[HINTERLAND]</a>
+    </div>
+    <div class="terminal-header" id="terminal-header"></div>
+    <div class="terminal-body" id="terminal-body"></div>
+    <div class="form-and-links" id="formAndLinks">
+      <form class="terminal-form" id="contact-form">
+        <label for="name">NAME:</label>
+        <input type="text" id="name" name="name" autocomplete="off" maxlength="32" required />
+        <label for="message">MESSAGE:</label>
+        <textarea id="message" name="message" rows="3" maxlength="500" required></textarea>
+        <label for="contact">CONTACT (EMAIL OR SOCIAL):</label>
+        <input type="text" id="contact" name="contact" autocomplete="off" maxlength="64" required />
+        <button type="submit">[SEND MESSAGE]</button>
+      </form>
+      <div class="terminal-links" id="terminal-links">
+        <a class="terminal-link-btn" href="https://www.linkedin.com/in/nelsonserranoiii" target="_blank">
+          <span class="link-main">[OPEN LINKEDIN]</span>
+          <span class="link-alt">&rarr; linkedin.com/in/nelsonserranoiii</span>
+          <span class="cursor">_</span>
+        </a>
+        <a class="terminal-link-btn" href="https://www.instagram.com/nellyhserr" target="_blank">
+          <span class="link-main">[OPEN INSTAGRAM]</span>
+          <span class="link-alt">&rarr; @nellyhserr</span>
+          <span class="cursor">_</span>
+        </a>
+        <a class="terminal-link-btn" href="mailto:nelsonhsiii@gmail.com?subject=Logbook%20Message" target="_blank">
+          <span class="link-main">[SEND EMAIL]</span>
+          <span class="link-alt">&rarr; nelsonhsiii@gmail.com</span>
+          <span class="cursor">_</span>
+        </a>
+      </div>
+    </div>
+    <div class="scanlines"></div>
+  </div>
+  <audio id="beep" src="https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae3c7.mp3" preload="auto"></audio>
+  <audio id="send" src="https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae3c7.mp3" preload="auto"></audio>
+  <script>
+    // Dropdown logic
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    dropdownBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.remove('open');
+      }
+    });
+
+    // Typewriter effect for header and intro
+    const headerText = "==> NELSON SERRANO // LOGBOOK ACCESS";
+    const introLines = [
+      "LOADING LOGBOOK SYSTEM...",
+      "ACCESS GRANTED.",
+      "PLEASE LEAVE YOUR MESSAGE BELOW."
+    ];
+    const headerEl = document.getElementById('terminal-header');
+    const bodyEl = document.getElementById('terminal-body');
+    const formAndLinks = document.getElementById('formAndLinks');
+    const formEl = document.getElementById('contact-form');
+    const linksEl = document.getElementById('terminal-links');
+    const beep = document.getElementById('beep');
+    const send = document.getElementById('send');
+    const terminal = document.getElementById('terminal');
+
+    function typewriter(el, text, speed = 32, cb) {
+      let i = 0;
+      function type() {
+        if (i <= text.length) {
+          el.innerHTML = text.slice(0, i) + '<span class="cursor">_</span>';
+          i++;
+          setTimeout(type, speed);
+        } else {
+          el.innerHTML = text;
+          if (cb) setTimeout(cb, 400);
+        }
+      }
+      type();
+    }
+
+    function typeLines(lines, idx = 0) {
+      if (idx >= lines.length) {
+        // Animate border and fade in form+links
+        terminal.classList.add('terminal-animate');
+        setTimeout(() => {
+          formAndLinks.classList.add('visible');
+          terminal.classList.remove('terminal-animate');
+        }, 600);
+        return;
+      }
+      typewriter(bodyEl, lines[idx], 22, () => typeLines(lines, idx + 1));
+    }
+
+    // Start animation
+    formAndLinks.classList.remove('visible');
+    typewriter(headerEl, headerText, 18, () => typeLines(introLines));
+
+    // Keystroke beep
+    formEl.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('input', () => {
+        beep.currentTime = 0;
+        beep.play();
+      });
+    });
+
+    // Form submission
+    formEl.addEventListener('submit', function(e) {
+      e.preventDefault();
+      send.currentTime = 0;
+      send.play();
+      bodyEl.innerHTML = "MESSAGE SENT SUCCESSFULLY.<br>RETURNING TO MENU...";
+      formAndLinks.classList.remove('visible');
+      setTimeout(() => {
+        bodyEl.innerHTML = '';
+        formEl.reset();
+        formAndLinks.classList.add('visible');
+      }, 1800);
+    });
+
+    // Link hover beep and cursor
+    linksEl.querySelectorAll('a').forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        beep.currentTime = 0;
+        beep.play();
+      });
+    });
+  </script>
+  <script type="module">
+    import { animateGhost, animateUfo, createParticles, animateHue } from './animations.js';
+    import { highlightPlayingAudio } from './audio.js';
+    import { sectionFadeIn, pageFadeInOnLoad, pageFadeOutOnNav } from './navigation.js';
+    import { paletteSwitcher } from './ui.js';
+    import { paletteScrollObserver } from './palette.js';
+
+    animateGhost();
+    animateUfo();
+    createParticles();
+    animateHue();
+    highlightPlayingAudio();
+    sectionFadeIn();
+    pageFadeInOnLoad();    
+    pageFadeOutOnNav();
+    paletteSwitcher();
+    paletteScrollObserver();
+  </script>
+</body>
+</html>

@@ -13,20 +13,65 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="films.html">Films</a></li>
-      <li><a href="music.html">Music</a></li>
       <li><a href="hinterland.html">Hinterland</a></li>
     </ul>
   </nav>
-
+  
   <main class="content">
     <h1 class="hero">Music + Sound</h1>
     <p class="hero-subtitle">Original compositions and soundtracks.</p>
-
+    
+    <section class="audio-block" data-palette="thecold">
+      <h2 class="hover-bob">The Cold</h2>
+      <p class="track-blurb">
+        The Cold was completed using open source software (Cakewalk) and plugins. Though I have since moved to Ableton, this is my first song that I am proud of production-wise and lyrically. I tried to combine my Ecuadorian roots with my love for American indie folk and rock to make a darker and cathartic sound. The Cold is more like what I want to create in the future.
+      </p>
+      <details>
+        <summary>Software Used</summary>
+        <ul>
+          <li>Cakewalk by BandLab</li>
+          <li>Various VSTs (Synth 1, TyrellN6, Valhalla etc.)</li>
+          <li>Mostly stock Cakewalk effects (reverb, delay, etc.)</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Timeline of Production</summary>
+        <p>Started in July 2023, completed in January 2024. I plan on rerecording it completely in the future.</p>
+      </details>
+      <details>
+        <summary>Behind-the-Scenes Notes</summary>
+        <p>This song was a huge learning experience for me. Though it is still roughly mixed, I gained a lot mixing and mastering skills in the process. I used a lot of unconventional sound sources (like a juggling ball as a shaker) and experimented with layering different synths to create a thick, gloomy atmospheric sound. The lyrics are deeply personal, reflecting the feelings of despair one often experiences in the dark days of a Minnesota winter.</p>
+      </details>
+      <audio controls id="audio-cold">
+        <source src="assets/The Cold.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      <div class="audio-visualizer" id="visualizer-cold">
+        <div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </section>
+    
     <section class="audio-block" data-palette="superstar">
       <h2 class="hover-bob">Superstar (V2.)</h2>
       <p class="track-blurb">
-        Superstar (V2.) was commissioned by an independent filmmaker who wanted a sleazy top 40s disco hit from the future.
+        Superstar (V2.) was commissioned by Adiana Contreras for her amazing film <a href="https://www.youtube.com/watch?v=mBHCGxVaBEE&t=4s" target="_blank" rel="noopener">Asphodel</a>. She wanted a sleazy top 40s disco hit from the future sang by the washed up Chip Creep (me). I had a blast making this track, and it was a great opportunity to seriously experiment with Ableton. The song is meant to be catchy, fun, and over-the-top, just like Chip!
       </p>
+      <details>
+        <summary>Software Used</summary>
+        <ul>
+          <li>Ableton Live 12 Suite</li>
+          <li>Various VSTs (Synth 1, TyrellN6, Valhalla etc.)</li>
+          <li>Mostly stock Ableton effects (reverb, delay, etc.)</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Timeline of Production</summary>
+        <p>Started in August 2024, completed in October 2024 for the film, though I am still making minor tweaks for its release.</p>
+      </details>
+      <details>
+        <summary>Behind-the-Scenes Notes</summary>
+        <p>This track is an experiment in creating a retro-futuristic sound. I used a lot of 80s-inspired analog synth patches on Synth 1 by Daichi, and TyrellN6 by u-he, along with native Ableton patches and drum racks (707 is the main one) to achieve that timeless vibe.</p>
+      </details>
       <audio controls id="audio-superstar">
         <source src="assets/Superstar.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
@@ -36,24 +81,14 @@
       </div>
     </section>
 
-    <section class="audio-block" data-palette="thecold">
-      <h2 class="hover-bob">The Cold</h2>
-      <p class="track-blurb">
-        The Cold was completed using open source software (Cakewalk) and plugins. Though I have since moved to Ableton, this is my first song that I am proud of production-wise.
-      </p>
-      <audio controls id="audio-cold">
-        <source src="assets/The Cold.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-      <div class="audio-visualizer" id="visualizer-cold">
-        <div></div><div></div><div></div><div></div><div></div>
-      </div>
-    </section>
   </main>
   <div id="global-audio-player" style="position:fixed;bottom:1.5rem;left:1.5rem;z-index:9999;display:none;background:#fff3;border-radius:12px;box-shadow:0 2px 8px #0002;padding:0.7em 1.2em;">
     <audio id="global-audio" controls style="width:220px;"></audio>
     <span id="global-audio-title" style="margin-left:0.7em;font-size:1rem;color:#00809D;"></span>
   </div>
+  <a href="contact.html" id="contact-link" title="Contact">
+    <img src="assets/envelope.png" alt="Contact" id="contact-envelope">
+  </a>
   <script type="module">
   import { animateGhost, animateUfo, createParticles, animateHue } from './animations.js';
   import { highlightPlayingAudio } from './audio.js';
@@ -72,21 +107,6 @@
   pageFadeOutOnNav();
   paletteSwitcher();
   paletteScrollObserver();
-
-  document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('musicAutoplay') === 'cold') {
-      // Set blue palette
-      localStorage.setItem('paletteIndex', 3);
-      paletteSwitcher(); // <-- Set palette first
-
-      // Play "The Cold"
-      const audio = document.getElementById('audio-cold');
-      if (audio) {
-        audio.play();
-      }
-      localStorage.removeItem('musicAutoplay');
-    }
-  });
 </script>
 </body>
 </html>

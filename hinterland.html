@@ -13,7 +13,6 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="films.html">Films</a></li>
       <li><a href="music.html">Music</a></li>
-      <li><a href="hinterland.html">Hinterland</a></li>
     </ul>
   </nav>
 
@@ -24,11 +23,32 @@
     <section class="game-block">
       <iframe src="https://n3llyb3lly.github.io/hinterland/Hinterland-1.0-web/index.html" width="800" height="600" frameborder="0" allowfullscreen></iframe>
     </section>
+
+    <details>
+      <summary>Software Used</summary>
+      <ul>
+        <li>Ren'Py (for visual novel engine)</li>
+        <li>Gimp (for editing art assets, both backgrounds and character sprites)</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Timeline of Production</summary>
+      <p>Started in March 2025, ongoing. Base story and mechanics are completed but I am working on replacing generated assets with original art, and making the humor overlay look better, as well as polishing the overall writing.</p>
+    </details>
+
+    <details>
+      <summary>Behind-the-Scenes Notes</summary>
+      <p>The forest backgrounds were inspired by real hikes in my home state of Alabama. Some backgrounds are my own photography, others are (non-AI) stock images I've edited. Parts of character sprites are (for now) placeholders created with AI tools. The branching dialogue was mapped out on paper first!</p>
+    </details>
   </main>
   <div id="global-audio-player" style="position:fixed;bottom:1.5rem;left:1.5rem;z-index:9999;display:none;background:#fff3;border-radius:12px;box-shadow:0 2px 8px #0002;padding:0.7em 1.2em;">
     <audio id="global-audio" controls style="width:220px;" aria-label="Global audio player"></audio>
     <span id="global-audio-title" style="margin-left:0.7em;font-size:1rem;color:#00809D;"></span>
   </div>
+  <a href="contact.html" id="contact-link" title="Contact">
+    <img src="assets/envelope.png" alt="Contact" id="contact-envelope">
+  </a>
   <script type="module">
     import { animateGhost, animateUfo, createParticles, animateHue } from './animations.js';
     import { sectionFadeIn, pageFadeInOnLoad, pageFadeOutOnNav } from './navigation.js';
