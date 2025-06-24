@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="animated-bg"></div>
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -22,13 +23,36 @@
     <p class="hero-subtitle">Interdisciplinary Artist & Analyst</p>
 
     <img src="assets/ghost.png" alt="ghost" class="ghost" />
+    <div class="hover-dialogue" id="ghost-dialogue">👻 Spooky tunes!</div>
     <img src="assets/ufo.png" alt="ufo" class="ufo" />
+    <div class="hover-dialogue" id="ufo-dialogue">🛸 Take me to your films!</div>
 
     <section class="intro">
       <pre id="typewriter"></pre>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <div id="global-audio-player" style="position:fixed;bottom:1.5rem;left:1.5rem;z-index:9999;display:none;background:#fff3;border-radius:12px;box-shadow:0 2px 8px #0002;padding:0.7em 1.2em;">
+    <audio id="global-audio" controls style="width:220px;"></audio>
+    <span id="global-audio-title" style="margin-left:0.7em;font-size:1rem;color:#00809D;"></span>
+  </div>
+  <script type="module">
+  import { animateGhost, animateUfo, createParticles, animateHue } from './animations.js';
+  import { highlightPlayingAudio } from './audio.js';
+  import { sectionFadeIn, pageFadeInOnLoad, pageFadeOutOnNav } from './navigation.js';
+  import { paletteSwitcher, hoverDialogue, typewriterEffect, ghostAndUfoNavigation } from './ui.js';
+
+  animateGhost();
+  animateUfo();
+  createParticles();
+  animateHue();
+  sectionFadeIn();
+  pageFadeInOnLoad();
+  pageFadeOutOnNav();
+  paletteSwitcher();
+  hoverDialogue();
+  typewriterEffect();
+  ghostAndUfoNavigation();
+</script>
 </body>
 </html>
