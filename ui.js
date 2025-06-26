@@ -34,9 +34,11 @@ export function hoverDialogue() {
     ghostImg.addEventListener('mouseenter', () => {
       const rect = ghostImg.getBoundingClientRect();
       ghostDialogue.style.position = 'fixed';
-      // Place to the left of the ghost, with a small gap
-      ghostDialogue.style.left = `${rect.left - ghostDialogue.offsetWidth - 4}px`;
-      ghostDialogue.style.top = `${rect.top + rect.height / 2 - ghostDialogue.offsetHeight / 2}px`;
+      // Use vw/vh for mobile friendliness
+      const leftVW = ((rect.left - ghostDialogue.offsetWidth - 4) / window.innerWidth) * 100;
+      const topVH = ((rect.top + rect.height / 2 - ghostDialogue.offsetHeight / 2) / window.innerHeight) * 100;
+      ghostDialogue.style.left = `${leftVW}vw`;
+      ghostDialogue.style.top = `${topVH}vh`;
       ghostDialogue.style.opacity = 1;
     });
     ghostImg.addEventListener('mouseleave', () => {
@@ -49,8 +51,11 @@ export function hoverDialogue() {
     ufoImg.addEventListener('mouseenter', () => {
       const rect = ufoImg.getBoundingClientRect();
       ufoDialogue.style.position = 'fixed';
-      ufoDialogue.style.left = `${rect.right + 4}px`;
-      ufoDialogue.style.top = `${rect.top + rect.height / 2 - ufoDialogue.offsetHeight / 2}px`;
+      // Use vw/vh for mobile friendliness
+      const leftVW = ((rect.right + 4) / window.innerWidth) * 100;
+      const topVH = ((rect.top + rect.height / 2 - ufoDialogue.offsetHeight / 2) / window.innerHeight) * 100;
+      ufoDialogue.style.left = `${leftVW}vw`;
+      ufoDialogue.style.top = `${topVH}vh`;
       ufoDialogue.style.opacity = 1;
     });
     ufoImg.addEventListener('mouseleave', () => {

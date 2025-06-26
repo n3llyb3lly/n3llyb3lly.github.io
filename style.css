@@ -236,6 +236,81 @@ pre#typewriter {
   }
 }
 
+/* 1. Navigation: Wrapping & Touch Targets */
+@media (max-width: 500px) {
+  nav ul {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  nav a {
+    padding: 0.5rem 0.7rem;
+    min-height: 44px;
+  }
+}
+
+/* 2. Ghost & UFO: Responsive Sizing */
+@media (max-width: 500px) {
+  .ghost { width: 14vw; min-width: 36px; max-width: 60px; }
+  .ufo { width: 20vw; min-width: 50px; max-width: 80px; }
+}
+
+/* 3. Content Padding & Readability */
+@media (max-width: 600px) {
+  .intro, .content {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* 4. Iframe Scaling (Video/Game Containers) */
+.video-frame-container iframe,
+.game-block iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: none;
+  min-height: 30vw;
+}
+
+/* 5. Global Audio Player: Responsive Anchoring */
+@media (max-width: 500px) {
+  #global-audio-player {
+    bottom: 0.7rem !important;
+    left: 0.7rem !important;
+    right: 0.7rem !important;
+    width: auto;
+  }
+}
+
+/* 6. Contact Link: Icon Sizing on Tiny Screens */
+@media (max-width: 400px) {
+  #contact-envelope { width: 1.8em; height: 1.8em; }
+  #contact-link { top: 0.3rem; right: 0.5rem; }
+}
+
+/* 7. Terminal Dropdown Menu: Full Width on Mobile */
+@media (max-width: 500px) {
+  #terminal-nav-menu {
+    min-width: 80vw;
+  }
+}
+
+/* 8. Typography: Slightly Larger Minimum on Small Devices */
+body {
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+}
+
+/* 9. Touch-Friendly Buttons */
+button, .terminal-nav a, .terminal-link-btn, nav a {
+  min-height: 44px;
+}
+
+/* 10. Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 .video-frame-container {
   position: relative;
   display: inline-block;
@@ -349,11 +424,13 @@ html {
 
 #animated-bg {
   position: fixed;
-  z-index: 0;
   inset: 0;
   width: 100vw;
   height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   pointer-events: none;
+  z-index: 0;
   background: linear-gradient(120deg, var(--bg1), var(--bg2), var(--accent2));
   animation: bgShift 18s ease-in-out infinite alternate;
   overflow: hidden;
