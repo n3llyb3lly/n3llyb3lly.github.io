@@ -1,45 +1,45 @@
 const palettes = {
   base: {
-    bg1: "#F8DFC4",
-    bg2: "#F08C5A",
-    accent1: "#005F69",
-    accent2: "#FF6F00",
-    text: "#2A1205"
+    bg1: "#F7DCC0",  // Muted clay
+    bg2: "#EE8552",  // Warm terracotta
+    accent1: "#007A82",  // Unified teal pop
+    accent2: "#FF6F00",  // Shared warm signal
+    text: "#2C1A10"  // Deep brown, readable but earthy
   },
   superstar: {
-    bg1: "#1A1A33",
-    bg2: "#FF1C8E",
-    accent1: "#00E2C5",
-    accent2: "#FFB400",
-    text: "#1F0F0F"
+    bg1: "#1A1A33",  // Dark violet base
+    bg2: "#FF1C8E",  // Neon magenta (keeps the personality)
+    accent1: "#00CFC0",  // Teal pop, cohesive with base
+    accent2: "#FFAA00",  // Gold warmth for consistency
+    text: "#1A0E0E"  // Very dark maroon, keeps Superstar’s boldness
   },
   thecold: {
-    bg1: "#253341",
-    bg2: "#3F5568",
-    accent1: "#8FA6B7",
-    accent2: "#ADB8C4",
-    text: "#142024"
+    bg1: "#24323F",  // Desaturated navy
+    bg2: "#3A5264",  // Muted steel blue
+    accent1: "#8BA5B6",  // Frosty blue, cohesive with others
+    accent2: "#A9B5C2",  // Pale icy silver
+    text: "#162126"  // Deep, cold slate for mood
   },
   higherliving: {
-    bg1: "#CFFFD5",
-    bg2: "#66FF99",
-    accent1: "#00E38A",
-    accent2: "#00A8A0",
-    text: "#172B1E"
+    bg1: "#C9FFD1",  // Misty mint green
+    bg2: "#60FF99",  // Bright leaf green
+    accent1: "#00CFA6",  // Cohesive teal accent
+    accent2: "#00A88F",  // Deep sea green for warmth inversion
+    text: "#152A1D"  // Forest earth tone, darker than original
   },
   lingering: {
-    bg1: "#2C1E1A",
-    bg2: "#5A3E31",
-    accent1: "#B7744F",
-    accent2: "#D0B24E",
-    text: "#20110E"
+    bg1: "#291D19",  // Deep soil brown
+    bg2: "#543A2E",  // Rich, muddy clay
+    accent1: "#B26F4C",  // Warm burnt copper
+    accent2: "#CFAC4A",  // Soft gold for signal
+    text: "#1D100D"  // Rich dark brown, still readable
   },
   hinterland: {
-    bg1: "#181A1A",
-    bg2: "#343634",
-    accent1: "#6B6E67",
-    accent2: "#8A7F5A",
-    text: "#C1C1B7"
+    bg1: "#161818",  // Shadowed evergreen
+    bg2: "#313431",  // Damp forest stone
+    accent1: "#6B6E67",  // Lichen grey-green
+    accent2: "#8A7F5A",  // Woodland gold
+    text: "#D6D6CE"  // Bone white for strong contrast
   }
 };
 
