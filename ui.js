@@ -33,8 +33,10 @@ export function hoverDialogue() {
   if (ghostImg && ghostDialogue) {
     ghostImg.addEventListener('mouseenter', () => {
       const rect = ghostImg.getBoundingClientRect();
-      ghostDialogue.style.left = `${rect.right + 10}px`;
-      ghostDialogue.style.top = `${rect.top + 10}px`;
+      ghostDialogue.style.position = 'fixed';
+      // Place to the left of the ghost, with a small gap
+      ghostDialogue.style.left = `${rect.left - ghostDialogue.offsetWidth - 4}px`;
+      ghostDialogue.style.top = `${rect.top + rect.height / 2 - ghostDialogue.offsetHeight / 2}px`;
       ghostDialogue.style.opacity = 1;
     });
     ghostImg.addEventListener('mouseleave', () => {
@@ -46,8 +48,9 @@ export function hoverDialogue() {
   if (ufoImg && ufoDialogue) {
     ufoImg.addEventListener('mouseenter', () => {
       const rect = ufoImg.getBoundingClientRect();
-      ufoDialogue.style.left = `${rect.right + 10}px`;
-      ufoDialogue.style.top = `${rect.top + 10}px`;
+      ufoDialogue.style.position = 'fixed';
+      ufoDialogue.style.left = `${rect.right + 4}px`;
+      ufoDialogue.style.top = `${rect.top + rect.height / 2 - ufoDialogue.offsetHeight / 2}px`;
       ufoDialogue.style.opacity = 1;
     });
     ufoImg.addEventListener('mouseleave', () => {

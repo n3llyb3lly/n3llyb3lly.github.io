@@ -407,8 +407,6 @@ html {
 
 .hover-dialogue {
   position: absolute;
-  left: 110px;
-  top: 40px;
   background: rgba(30,30,40,0.92);
   color: #fff;
   font-size: 1rem;
