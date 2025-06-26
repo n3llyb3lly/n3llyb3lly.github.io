@@ -20,6 +20,11 @@
   <main class="content">
     <h1 class="hero">Films</h1>
     <p class="hero-subtitle">Short films, experiments, and visual stories.</p>
+    <section class="intro" style="margin-bottom:2em;">
+      <p>
+        Welcome to my film portfolio! Here you'll find my latest short films and visual experiments. Each project is a unique journey—click on the titles or expand the details to learn more about the creative process, tools, and behind-the-scenes stories.
+      </p>
+    </section>
 
     <section class="video-block" id="higher-living" data-palette="higherliving">
       <div class="video-frame-container">
@@ -27,13 +32,14 @@
         <iframe width="560" height="315" src="https://www.youtube.com/embed/4JtCrQ4ELsk" 
                 title="Higher Living" frameborder="0" allowfullscreen></iframe>
         <p class="video-description">
-          Two friends, a radio, and a quest for alien contact. Higher Living is a short film that explores the themes of unconditional friendship, curiosity, and the enjoyment of the little things. It was created as part of an off-campus study in Los Angeles. I cowrote the script, got most of the props, worked as a secondary editor, and handled all of the sound: recording, design, scoring and editing. The film was shot in only two days (eight hours total), and with a super tight budget. We also tried to be super discreet while filming because we had issues with permits. The film was shot in the Hollywood Hills, close to Griffith Park.
+          <strong>Two friends, a radio, and a quest for alien contact.</strong> <br>
+          <em>Higher Living</em> is a short film about unconditional friendship, curiosity, and enjoying the little things. Created during an off-campus study in Los Angeles, I co-wrote the script, gathered most of the props, worked as a secondary editor, and handled all sound: recording, design, scoring, and editing. The film was shot in just two days (eight hours total) on a super tight budget. We also had to film discreetly because of permit issues, shooting in the Hollywood Hills near Griffith Park.
         </p>
         <details>
           <summary>Software Used</summary>
           <ul>
-            <li>Adobe Premiere Pro (for editing and sound mixing)</li>
-            <li>Ableton Live 12 (for scoring)</li>
+            <li>Adobe Premiere Pro (editing and sound mixing)</li>
+            <li>Ableton Live 12 (scoring)</li>
           </ul>
         </details>
         <details>
@@ -42,66 +48,81 @@
         </details>
         <details>
           <summary>Behind-the-Scenes Notes</summary>
-          <p>This film was a huge learning experience for me. I had never worked on a collaborative film before, and I learned a lot about sound design, recording, and editing. The radio was a little heater I found at a thrift store, and after we taped a crochet hook to it, it ended up being the perfect centerpiece for the film. We found our wonderful actors on Backstage and had a great time working with them.</p>
+          <p>
+            Another fantastic learning experience. It was my first time working on a collaborative film, and I picked up so much about sound design, recording, and editing. The radio prop was actually a little heater I found at a thrift store. We taped a crochet hook to it, and somehow, it became the perfect centerpiece for the story. We found our amazing actors on Backstage and had a great time working with them.
+          </p>
+        </details>
       </div>
     </section>
 
-    <section class="video-block">
+    <section class="video-block" id="lingering" data-palette="lingering" style="margin-top:2em;">
       <div class="video-frame-container">
         <h2 class="hover-bob video-title">Lingering</h2>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/7qF1GJLhenQ" 
-                title="Linger" frameborder="0" allowfullscreen></iframe>
+                title="Lingering" frameborder="0" allowfullscreen></iframe>
+        <p class="video-description">
+          <strong>A wandering soul haunted by a masked figure.</strong> <br>
+          <em>Lingering</em> is a short, experimental film I created as the final project for my Digital Foundations course at Carleton College. It explores paranoia, loneliness, and resignation. I wrote, directed, edited, and handled all of the sound design and scoring. The film was shot over two days in the fall of 2023, mostly in the arboretum and our dorm. This was the film that made me realize I love filmmaking and want to keep creating more. I’m proud of what I made, especially for my first film.
+        </p>
+        <details>
+          <summary>Software Used</summary>
+          <ul>
+            <li>Adobe Premiere Pro (editing and sound mixing)</li>
+            <li>Cakewalk (sound design and original music)</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Timeline of Production</summary>
+          <p>Started and completed in November 2023.</p>
+        </details>
+        <details>
+          <summary>Behind-the-Scenes Notes</summary>
+          <p>
+            This film was a huge learning experience. I had never made a film before, and I learned so much about sound design, recording, and editing. The mask was just paper and tape, and I recorded much of the audio using an old thrifted tape recorder. I also used a lot of Tascam field recordings to build the eerie atmosphere. Shooting in the arboretum and my dorm with friends made the whole process super rewarding and fun.
+          </p>
+        </details>
       </div>
     </section>
   </main>
-  <div id="global-audio-player" style="position:fixed;bottom:1.5rem;left:1.5rem;z-index:9999;display:none;background:#fff3;border-radius:12px;box-shadow:0 2px 8px #0002;padding:0.7em 1.2em;">
-    <audio id="global-audio" controls style="width:220px;"></audio>
-    <span id="global-audio-title" style="margin-left:0.7em;font-size:1rem;color:#00809D;"></span>
-  </div>
-  <script src="global-audio.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add('page-visible');
     });
   </script>
   <script type="module">
-  import { animateGhost, animateUfo, createParticles, animateHue } from './animations.js';
-  import { highlightPlayingAudio } from './audio.js';
-  import { sectionFadeIn, pageFadeInOnLoad, pageFadeOutOnNav } from './navigation.js';
-  import { paletteSwitcher, hoverDialogue, typewriterEffect } from './ui.js';
-  import { paletteScrollObserver } from './palette.js';
+    import { animateGhost, animateUfo, createParticles, animateHue } from './animations.js';
+    import { highlightPlayingAudio } from './audio.js';
+    import { sectionFadeIn, pageFadeInOnLoad, pageFadeOutOnNav } from './navigation.js';
+    import { paletteSwitcher, hoverDialogue, typewriterEffect } from './ui.js';
+    import { paletteScrollObserver } from './palette.js';
 
-  // Call only what you need for this page:
-  animateGhost();
-  animateUfo();
-  createParticles();
-  animateHue();
-  highlightPlayingAudio();
-  sectionFadeIn();
-  pageFadeInOnLoad();
-  pageFadeOutOnNav();
-  paletteSwitcher();
-  hoverDialogue();
-  typewriterEffect();
-  paletteScrollObserver();
+    animateGhost();
+    animateUfo();
+    createParticles();
+    animateHue();
+    highlightPlayingAudio();
+    sectionFadeIn();
+    pageFadeInOnLoad();
+    pageFadeOutOnNav();
+    paletteSwitcher();
+    hoverDialogue();
+    typewriterEffect();
+    paletteScrollObserver();
 
-  document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('filmAutoplay') === 'higher-living') {
-      // Set green palette
-      localStorage.setItem('paletteIndex', 1);
-      paletteSwitcher(); // <-- Set palette first
-
-      // Play "Higher Living" (YouTube iframe)
-      const iframe = document.querySelector('iframe[src*="4JtCrQ4ELsk"]');
-      if (iframe) {
-        iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    document.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('filmAutoplay') === 'higher-living') {
+        localStorage.setItem('paletteIndex', 1);
+        paletteSwitcher();
+        const iframe = document.querySelector('iframe[src*="4JtCrQ4ELsk"]');
+        if (iframe) {
+          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        }
+        localStorage.removeItem('filmAutoplay');
       }
-      localStorage.removeItem('filmAutoplay');
-    }
-  });
-</script>
-<a href="contact.html" id="contact-link" title="Contact">
-  <img src="assets/envelope.png" alt="Contact" id="contact-envelope">
-</a>
+    });
+  </script>
+  <a href="contact.html" id="contact-link" title="Contact">
+    <img src="assets/envelope.png" alt="Contact" id="contact-envelope">
+  </a>
 </body>
 </html>

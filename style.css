@@ -3,16 +3,17 @@
   --bg2: #F3A26D;
   --accent1: #00809D;
   --accent2: #FF7601;
+  --text-main: #222;
 }
 
 body {
   margin: 0;
   font-family: 'Share Tech Mono', monospace;
   background: linear-gradient(to bottom, var(--bg1), var(--bg2));
-  color: var(--accent1);
+  color: var(--text-main);
   overflow-x: hidden;
   background-attachment: fixed;
-  font-size: clamp(1rem, 2.5vw, 1.25rem); /* Responsive base font size */
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   transition: opacity 0.3s, background 1.2s, color 1.2s;
   opacity: 0;
 }
@@ -26,9 +27,9 @@ nav {
   top: 0;
   width: 100%;
   background: var(--accent2);
-  padding: 1.2rem 0; /* Slightly larger padding for consistency */
+  padding: 1.2rem 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  font-size: 1.1rem; /* Make nav font size consistent and readable */
+  font-size: 1.1rem;
 }
 
 nav.terminal,
@@ -66,24 +67,36 @@ nav a:hover {
   color: #FCECDD;
 }
 
+body,
+.intro,
+.content,
+.audio-block,
+.video-block,
+.track-blurb,
+.video-description,
+.section-title,
+.section-subtitle {
+  color: var(--text-main);
+}
+
 .intro {
-    box-sizing: border-box;
-    padding: 1.2rem 1rem 2rem;
-    width: 95vw;
-    max-width: 47rem;
-    min-width: 0;
-    margin: 0 auto;
-    line-height: 1.5;
-    display: block;
-    word-break: break-word;
-    text-align: left;
+  box-sizing: border-box;
+  padding: 1.2rem 1rem 2rem;
+  width: 95vw;
+  max-width: 47rem;
+  min-width: 0;
+  margin: 0 auto;
+  line-height: 1.5;
+  display: block;
+  word-break: break-word;
+  text-align: left;
 }
 
 .ghost {
   position: absolute;
   left: 0;
   width: 80px;
-  pointer-events: auto; /* Make clickable */
+  pointer-events: auto;
   z-index: 10;
 }
 
@@ -93,7 +106,7 @@ nav a:hover {
   width: 100px;
   pointer-events: auto;
   z-index: 11;
-  opacity: 0; /* Hide UFO initially */
+  opacity: 0;
   transition: opacity 0.3s;
 }
 
@@ -106,7 +119,7 @@ nav a:hover {
   position: relative;
   z-index: 1;
   max-width: 50rem;
-  margin: 7vh auto 4vh; /* Adjust top margin to match nav height */
+  margin: 7vh auto 4vh;
   padding: 1rem;
   text-align: center;
 }
@@ -127,13 +140,13 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: clamp(2.2rem, 6vw, 3rem); /* Responsive, but keeps max size */
+  font-size: clamp(2.2rem, 6vw, 3rem);
   margin-bottom: 0.5rem;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .hero p {
-  font-size: clamp(1.2rem, 3vw, 1.5rem); /* Responsive, but keeps max size */
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   color: #FF7601;
   transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -194,15 +207,14 @@ nav a:hover {
 }
 
 pre#typewriter {
-  white-space: pre-wrap;   /* Allows wrapping */
-  word-break: break-word;  /* Breaks long words if needed */
-  font-size: clamp(1rem, 2.5vw, 1.3rem); /* Responsive font size */
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   line-height: 1.5;
   margin: 0 auto;
   max-width: 95vw;
 }
 
-/* Responsive global audio player */
 @media (max-width: 500px) {
   #global-audio-player {
     left: 0.5rem !important;
@@ -228,17 +240,17 @@ pre#typewriter {
   position: relative;
   display: inline-block;
   margin-bottom: 2rem;
-  border: 4px solid #7fffd4; /* Example: aquamarine */
+  border: 4px solid #7fffd4;
   border-radius: 0.75em;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0,0,0,0.15);
 }
 
 .video-frame-container:nth-child(1) {
-  border-color: #7fffd4; /* Example: aquamarine */
+  border-color: #7fffd4;
 }
 .video-frame-container:nth-child(2) {
-  border-color: #ffb347; /* Example: orange */
+  border-color: #ffb347;
 }
 
 .video-title {
@@ -282,7 +294,7 @@ pre#typewriter {
 
 .track-blurb {
   font-size: clamp(1rem, 2.5vw, 1.1rem);
-  color: #00809D;
+  color: var(--text-main);
   margin: 0.5rem 0 1.2rem 0;
   font-style: italic;
   background: #fceccdbb;
@@ -293,7 +305,7 @@ pre#typewriter {
 
 .video-description {
   font-size: clamp(1rem, 2.5vw, 1.1rem);
-  color: #00809D;
+  color: var(--text-main);
   margin-top: 0.5rem;
   line-height: 1.4;
   background: #fceccdbb;
@@ -311,7 +323,6 @@ audio {
   box-shadow: 0 2px 8px #ff760122;
 }
 
-/* Responsive wrapping for .intro and .content */
 @media (max-width: 600px) {
   .intro, .content {
     max-width: 98vw;
@@ -336,7 +347,6 @@ html {
   transform: translateY(0);
 }
 
-/* Animated background: subtle color shifting gradient + floating particles */
 #animated-bg {
   position: fixed;
   z-index: 0;
@@ -360,7 +370,6 @@ html {
   }
 }
 
-/* Optional: floating particles */
 .animated-particle {
   position: absolute;
   border-radius: 50%;

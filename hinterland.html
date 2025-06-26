@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
 </head>
 <body>
+  <div id="animated-bg"></div>
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -16,7 +17,7 @@
     </ul>
   </nav>
 
-  <main class="content">
+  <main class="content" data-palette="hinterland">
     <h1 class="hero">Hinterland</h1>
     <p class="hero-subtitle">A visual novel set in a forest that appears to shift around you. Be careful who you trust... Built in Ren'Py.</p>
 
@@ -39,9 +40,12 @@
 
     <details>
       <summary>Behind-the-Scenes Notes</summary>
-      <p>The forest backgrounds were inspired by real hikes in my home state of Alabama. Some backgrounds are my own photography, others are (non-AI) stock images I've edited. Parts of character sprites are (for now) placeholders created with AI tools. The branching dialogue was mapped out on paper first!</p>
+      <p>
+        The forest backgrounds were inspired by real hikes in my home state of Alabama. Some backgrounds are my own photography, others are (non-AI) stock images I've edited. Parts of character sprites are (for now) placeholders created with AI tools. The branching dialogue was mapped out on paper first!
+      </p>
     </details>
   </main>
+
   <div id="global-audio-player" style="position:fixed;bottom:1.5rem;left:1.5rem;z-index:9999;display:none;background:#fff3;border-radius:12px;box-shadow:0 2px 8px #0002;padding:0.7em 1.2em;">
     <audio id="global-audio" controls style="width:220px;" aria-label="Global audio player"></audio>
     <span id="global-audio-title" style="margin-left:0.7em;font-size:1rem;color:#00809D;"></span>

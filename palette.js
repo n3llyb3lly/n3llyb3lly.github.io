@@ -1,9 +1,49 @@
 const palettes = {
-  base:    { bg1: "#FCECDD", bg2: "#F3A26D", accent1: "#00809D", accent2: "#FF7601" }, // Orange
-  superstar: { bg1: "#2B2B4F", bg2: "#FF00CC", accent1: "#00FFD0", accent2: "#FFD700" }, // Neon Disco
-  thecold: { bg1: "#22304A", bg2: "#3A4A6B", accent1: "#5A6D8C", accent2: "#7A8BA3" }, // Winter Blues
-  higherliving: { bg1: "#D0FFD6", bg2: "#6EFF7B", accent1: "#00FF6A", accent2: "#00C9A7" } // Green Alien
+  base: {
+    bg1: "#F8DFC4",
+    bg2: "#F08C5A",
+    accent1: "#005F69",
+    accent2: "#FF6F00",
+    text: "#2A1205"
+  },
+  superstar: {
+    bg1: "#1A1A33",
+    bg2: "#FF1C8E",
+    accent1: "#00E2C5",
+    accent2: "#FFB400",
+    text: "#1F0F0F"
+  },
+  thecold: {
+    bg1: "#253341",
+    bg2: "#3F5568",
+    accent1: "#8FA6B7",
+    accent2: "#ADB8C4",
+    text: "#142024"
+  },
+  higherliving: {
+    bg1: "#CFFFD5",
+    bg2: "#66FF99",
+    accent1: "#00E38A",
+    accent2: "#00A8A0",
+    text: "#172B1E"
+  },
+  lingering: {
+    bg1: "#2C1E1A",
+    bg2: "#5A3E31",
+    accent1: "#B7744F",
+    accent2: "#D0B24E",
+    text: "#20110E"
+  },
+  hinterland: {
+  bg1: "#1A2118",  // Deep forest green
+  bg2: "#3E4A39",  // Mossy muted green
+  accent1: "#7E8F7C",  // Desaturated sage for highlights
+  accent2: "#A38F6D",  // Muted woodland gold for interactive elements
+  text: "#13100D"  // Rich dark brown, still readable but earthy
+}
+
 };
+
 
 // Helper: hex to rgb
 function hexToRgb(hex) {
@@ -33,6 +73,7 @@ function setPaletteVars(pal) {
   document.documentElement.style.setProperty('--bg2', pal.bg2);
   document.documentElement.style.setProperty('--accent1', pal.accent1);
   document.documentElement.style.setProperty('--accent2', pal.accent2);
+  document.documentElement.style.setProperty('--text-main', pal.text || '#222');
 }
 
 export function paletteScrollObserver() {
@@ -65,7 +106,8 @@ export function paletteScrollObserver() {
       bg1: lerpColor(prevPal.bg1, nextPal.bg1, t),
       bg2: lerpColor(prevPal.bg2, nextPal.bg2, t),
       accent1: lerpColor(prevPal.accent1, nextPal.accent1, t),
-      accent2: lerpColor(prevPal.accent2, nextPal.accent2, t)
+      accent2: lerpColor(prevPal.accent2, nextPal.accent2, t),
+      text: t < 0.5 ? prevPal.text : nextPal.text
     });
   }
 
