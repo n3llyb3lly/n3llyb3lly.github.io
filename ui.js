@@ -64,7 +64,7 @@ export function typewriterEffect() {
   const text = `Welcome to my curious collection of ghosts and glitches!
 These are experiments in sound and image. Some are rough, many are unfinished, but all of them are mine!
 
-I’m Nelson Serrano, a psych graduate and artist drawn to the ephemeral and uncanny. My work lives in between the dreams of Appalachian cryptids and the signal of a deep space sattelite: films, games, music, and ideas that cover isolation, friendship, magical realism, and the quality of being alien. 
+I’m Nelson Serrano, a psych graduate and artist drawn to the ephemeral and uncanny. My work lives in between the dreams of Appalachian cryptids and the signal of a deep space sattelite, often covering isolation, friendship, magical realism, and the quality of being alien. 
 These are things I’d want to find by accident and things I've always wanted someone else to make.
 
 Thanks for coming:)`;
@@ -89,7 +89,6 @@ export function ghostAndUfoNavigation() {
     ghost.style.cursor = "pointer";
     ghost.addEventListener('click', () => {
       localStorage.setItem('musicAutoplay', 'cold');
-      localStorage.setItem('paletteIndex', 1); // blue palette
       window.location.href = 'music.html';
     });
   }
@@ -98,7 +97,6 @@ export function ghostAndUfoNavigation() {
     ufo.style.cursor = "pointer";
     ufo.addEventListener('click', () => {
       localStorage.setItem('filmAutoplay', 'higher-living');
-      localStorage.setItem('paletteIndex', 0); // green palette
       window.location.href = 'films.html';
     });
   }
