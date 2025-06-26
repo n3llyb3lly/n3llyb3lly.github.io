@@ -22,7 +22,8 @@
     <p class="hero-subtitle">A visual novel set in a forest that appears to shift around you. Be careful who you trust... Built in Ren'Py.</p>
 
     <section class="game-block">
-      <iframe src="https://n3llyb3lly.github.io/hinterland/Hinterland-1.0-web/index.html" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+      <iframe id="hinterland-game" src="https://n3llyb3lly.github.io/hinterland/Hinterland-1.0-web/index.html" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+      <img id="fullscreen-btn" src="assets/noun-fullscreen-5530956.png" alt="Fullscreen" style="margin:1em auto;display:block;cursor:pointer;width:2.5em;height:2.5em;" />
     </section>
 
     <details>
@@ -54,21 +55,36 @@
     <img src="assets/envelope.png" alt="Contact" id="contact-envelope">
   </a>
   <script type="module">
-    import { animateGhost, animateUfo, createParticles, animateHue } from './animations.js';
-    import { sectionFadeIn, pageFadeInOnLoad, pageFadeOutOnNav } from './navigation.js';
-    import { paletteSwitcher, hoverDialogue } from './ui.js';
-    import { paletteScrollObserver } from './palette.js';
+  import { animateGhost, animateUfo, createParticles, animateHue } from './animations.js';
+  import { highlightPlayingAudio } from './audio.js';
+  import { sectionFadeIn, pageFadeInOnLoad, pageFadeOutOnNav } from './navigation.js';
+  import { paletteSwitcher, hoverDialogue, typewriterEffect, ghostAndUfoNavigation } from './ui.js';
+  import { paletteScrollObserver } from './palette.js';
 
-    animateGhost();
-    animateUfo();
-    createParticles();
-    animateHue();
-    sectionFadeIn();
-    pageFadeInOnLoad();
-    pageFadeOutOnNav();
-    paletteSwitcher();
-    hoverDialogue();
-    paletteScrollObserver();
+
+  animateGhost();
+  animateUfo();
+  createParticles();
+  animateHue();
+  sectionFadeIn();
+  pageFadeInOnLoad();
+  pageFadeOutOnNav();
+  paletteSwitcher();
+  hoverDialogue();
+  typewriterEffect();
+  ghostAndUfoNavigation();
+  paletteScrollObserver();
+
+  document.getElementById('fullscreen-btn').addEventListener('click', () => {
+    const iframe = document.getElementById('hinterland-game');
+    if (iframe.requestFullscreen) {
+      iframe.requestFullscreen();
+    } else if (iframe.webkitRequestFullscreen) {
+      iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) {
+      iframe.msRequestFullscreen();
+    }
+  });
   </script>
 </body>
 </html>

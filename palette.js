@@ -35,13 +35,12 @@ const palettes = {
     text: "#20110E"
   },
   hinterland: {
-  bg1: "#1A2118",  // Deep forest green
-  bg2: "#3E4A39",  // Mossy muted green
-  accent1: "#7E8F7C",  // Desaturated sage for highlights
-  accent2: "#A38F6D",  // Muted woodland gold for interactive elements
-  text: "#13100D"  // Rich dark brown, still readable but earthy
-}
-
+    bg1: "#181A1A",
+    bg2: "#343634",
+    accent1: "#6B6E67",
+    accent2: "#8A7F5A",
+    text: "#C1C1B7"
+  }
 };
 
 
@@ -78,6 +77,10 @@ function setPaletteVars(pal) {
 
 export function paletteScrollObserver() {
   const sections = Array.from(document.querySelectorAll('[data-palette]'));
+  if (sections.length === 1) {
+    setPaletteVars(palettes[sections[0].getAttribute('data-palette')]);
+    return;
+  }
   if (sections.length < 2) return;
 
   function updatePalette() {
